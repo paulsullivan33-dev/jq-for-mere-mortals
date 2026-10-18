@@ -1,0 +1,24 @@
+site_name: jq for Mere Mortals
+site_description: Plain-language jq. Pretty-printing, selecting, reshaping, and rewriting JSON from the command line, with every filter run for real against the sample files.
+site_url: https://paulsullivan33-dev.github.io/jq-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What jq Is: what-jq-is.md
+  - First Filters: first-filters.md
+  - Selecting: selecting.md
+  - Reshaping Output: reshaping-output.md
+  - Arrays and Aggregation: arrays-and-aggregation.md
+  - A Worked Example: worked-example.md
+  - Streams and Multiple Files: streams-and-multiple-files.md
+  - Feeding jq Data: feeding-jq-data.md
+  - Changing JSON: changing-json.md
+  - Errors and Debugging: errors-and-debugging.md
+  - jq in Scripts and Pipelines: jq-in-scripts.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

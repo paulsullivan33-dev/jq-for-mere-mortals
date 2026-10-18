@@ -1,0 +1,144 @@
+jq filters — the commands from "jq for Mere Mortals"
+=====================================================
+
+Every filter below was run while writing the guide,
+against the sample files in this directory
+(models.json, inventory.json, orders.json,
+events.json, settings.json). File names are
+examples; the filters are the point.
+
+
+READ AND CHECK
+--------------
+Pretty-print a file (`.` is the identity filter):
+
+    jq '.' models-min.json
+
+Compact output, one value per line:
+
+    jq -c '.' models.json
+
+Validate a file (no output, just the error if any):
+
+    jq -e '.' models.json > /dev/null
+
+- What jq Is
+
+
+PATHS
+-----
+    jq '.models[0].name' models.json
+    jq '.models[1].details.context_length' models.json
+    jq '.models[] | .name' models.json
+    jq '.models[0] | keys' models.json
+    jq '.models | length' models.json
+
+A missing key is null, not an error:
+
+    jq '.models[3].capabilities' models.json
+
+Iterate without dying on a missing array:
+
+    jq '.models[3].capabilities[]?' models.json
+
+- First Filters
+
+
+SELECTING
+---------
+    jq '.models[] | select(.details.context_length >= 16384) | .name' models.json
+    jq '.models[] | .capabilities // "none recorded"' models.json
+    jq '[.models[] | select(has("capabilities"))] | length' models.json
+    jq '[.[] | select(.services | type == "array")] | length' inventory.json
+
+- Selecting
+
+
+RESHAPING
+---------
+Build new objects, compute fields:
+
+    jq '.models[] | {model: .name, ctx_k: (.details.context_length / 1024)}' models.json
+
+String interpolation, raw output for humans:
+
+    jq -r '.models[] | "\(.name) (\(.details.parameter_size))"' models.json
+
+Rows for a spreadsheet:
+
+    jq -r '.orders[] | [.id, .customer.name, ([.items[] | .qty * .price] | add), .status] | @csv' orders.json
+
+- Reshaping Output
+
+
+ARRAYS AND TOTALS
+-----------------
+    jq 'map(.ram_gb) | add' inventory.json
+    jq 'map(.ram_gb) | add / length' inventory.json
+    jq 'map(.role) | unique' inventory.json
+    jq 'sort_by(.location) | group_by(.location) | map({location: .[0].location, machines: length})' inventory.json
+
+- Arrays and Aggregation
+
+
+STREAMS
+-------
+Without slurp, the filter runs once per value:
+
+    jq 'length' events.json
+
+With slurp, the whole stream becomes one array:
+
+    jq -s 'length' events.json
+    jq -s 'map(select(.level == "error")) | length' events.json
+
+Exit status from the result (0 true / 1 false / 4 no output):
+
+    jq -e '.[] | select(.name == "harbor-08") | .decommissioned' inventory.json
+
+- Streams and Multiple Files
+
+
+FEEDING JQ
+----------
+Shell values in, as strings or as JSON:
+
+    jq --arg role server '[.[] | select(.role == $role)] | length' inventory.json
+    jq --argjson min 32 '[.[] | select(.ram_gb >= $min)] | map(.name)' inventory.json
+
+A filter too long to type lives in a file:
+
+    jq -f summary.jq inventory.json
+
+- Feeding jq Data
+
+
+CHANGING JSON
+-------------
+Assignment reads its right side from the document;
+update-assignment transforms the old value:
+
+    jq '.retries = .max_retries' settings.json
+    jq '.retries |= . + 1' settings.json
+    jq 'del(.targets[0])' settings.json
+
+jq never edits in place. The safe ritual:
+
+    jq '.retries = 5' settings.json > settings.new.json
+    mv settings.new.json settings.json
+
+- Changing JSON
+
+
+IN SCRIPTS
+----------
+    jq -r '.models[] | .name' models.json | while read -r m; do echo "checking $m"; done
+
+    if jq -e '.models | length > 0' models.json > /dev/null; then
+      echo "models present"
+    fi
+
+Remember pipefail: without it, a failed jq mid-pipe
+is invisible to `$?`.
+
+- jq in Scripts and Pipelines

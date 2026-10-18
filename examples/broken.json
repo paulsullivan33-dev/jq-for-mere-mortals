@@ -1,0 +1,6 @@
+{
+  "name": "spare-parts",
+  "count": 14,
+  "items": ["bolts", "nuts" "washers"],
+  "in_stock": true
+}

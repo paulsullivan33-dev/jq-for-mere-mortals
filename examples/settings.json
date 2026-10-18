@@ -1,0 +1,14 @@
+{
+  "max_retries": 5,
+  "notify": false,
+  "retries": 3,
+  "schedule": {
+    "hour": 2,
+    "minute": 30
+  },
+  "service": "backup",
+  "targets": [
+    "atlas-01",
+    "birch-02"
+  ]
+}

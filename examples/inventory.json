@@ -1,0 +1,108 @@
+[
+  {
+    "cpus": 16,
+    "disk_free_gb": 412,
+    "disk_total_gb": 2000,
+    "location": "office",
+    "name": "atlas-01",
+    "os": "linux",
+    "ram_gb": 64,
+    "role": "server",
+    "services": [
+      "ssh",
+      "http",
+      "backup"
+    ]
+  },
+  {
+    "cpus": 8,
+    "disk_free_gb": 96,
+    "disk_total_gb": 1000,
+    "location": "office",
+    "name": "birch-02",
+    "os": "linux",
+    "ram_gb": 32,
+    "role": "server",
+    "services": [
+      "ssh",
+      "db"
+    ]
+  },
+  {
+    "cpus": 12,
+    "disk_free_gb": 388,
+    "disk_total_gb": 1000,
+    "location": "office",
+    "name": "copper-03",
+    "os": "windows",
+    "ram_gb": 32,
+    "role": "workstation",
+    "services": [
+      "rdp"
+    ]
+  },
+  {
+    "cpus": 8,
+    "disk_free_gb": 121,
+    "disk_total_gb": 500,
+    "location": "remote",
+    "name": "dune-04",
+    "os": "macos",
+    "ram_gb": 16,
+    "role": "laptop",
+    "services": []
+  },
+  {
+    "cpus": 32,
+    "disk_free_gb": 2910,
+    "disk_total_gb": 4000,
+    "location": "lab",
+    "name": "elm-05",
+    "os": "linux",
+    "ram_gb": 128,
+    "role": "server",
+    "services": [
+      "ssh",
+      "http",
+      "metrics",
+      "queue"
+    ]
+  },
+  {
+    "cpus": 16,
+    "disk_free_gb": 1550,
+    "disk_total_gb": 2000,
+    "location": "lab",
+    "name": "fjord-06",
+    "os": "linux",
+    "ram_gb": 64,
+    "role": "workstation"
+  },
+  {
+    "cpus": 4,
+    "decommissioned": false,
+    "disk_free_gb": 23,
+    "disk_total_gb": 250,
+    "location": "remote",
+    "name": "garnet-07",
+    "os": "linux",
+    "ram_gb": 8,
+    "role": "server",
+    "services": [
+      "ssh",
+      "vpn"
+    ]
+  },
+  {
+    "cpus": 8,
+    "decommissioned": true,
+    "disk_free_gb": 210,
+    "disk_total_gb": 500,
+    "location": "office",
+    "name": "harbor-08",
+    "os": "windows",
+    "ram_gb": 16,
+    "role": "laptop",
+    "services": []
+  }
+]

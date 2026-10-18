@@ -1,0 +1,70 @@
+{
+  "orders": [
+    {
+      "customer": {
+        "city": "Limerick",
+        "name": "Ada Byrne"
+      },
+      "id": "ORD-2401",
+      "items": [
+        {
+          "name": "brass widget",
+          "price": 12.5,
+          "qty": 3,
+          "sku": "WDG-01"
+        },
+        {
+          "name": "coil spring",
+          "price": 1.25,
+          "qty": 10,
+          "sku": "SPR-07"
+        }
+      ],
+      "status": "shipped"
+    },
+    {
+      "customer": {
+        "city": "Galway",
+        "name": "Tomas Reyes"
+      },
+      "id": "ORD-2402",
+      "items": [
+        {
+          "name": "hex bolt (box)",
+          "price": 7.25,
+          "qty": 2,
+          "sku": "BLT-20"
+        }
+      ],
+      "status": "pending"
+    },
+    {
+      "customer": {
+        "city": "Cork",
+        "name": "Priya Nair"
+      },
+      "id": "ORD-2403",
+      "items": [
+        {
+          "name": "brass widget",
+          "price": 12.5,
+          "qty": 1,
+          "sku": "WDG-01"
+        },
+        {
+          "name": "gasket set",
+          "price": 5.0,
+          "qty": 4,
+          "sku": "GKT-03"
+        },
+        {
+          "name": "coil spring",
+          "price": 1.25,
+          "qty": 6,
+          "sku": "SPR-07"
+        }
+      ],
+      "status": "shipped"
+    }
+  ]
+}

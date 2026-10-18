@@ -1,0 +1,8 @@
+{"ts": "2026-10-12T08:15:01Z", "level": "info", "service": "backup", "msg": "snapshot started"}
+{"ts": "2026-10-12T08:15:04Z", "level": "info", "service": "backup", "msg": "snapshot finished"}
+{"ts": "2026-10-12T09:02:47Z", "level": "warn", "service": "queue", "msg": "queue depth above 500"}
+{"ts": "2026-10-12T09:03:12Z", "level": "error", "service": "queue", "msg": "worker stalled, restarting"}
+{"ts": "2026-10-12T11:40:55Z", "level": "info", "service": "metrics", "msg": "scrape ok"}
+{"ts": "2026-10-12T13:22:10Z", "level": "error", "service": "backup", "msg": "target unreachable"}
+{"ts": "2026-10-12T13:22:11Z", "level": "info", "service": "backup", "msg": "retry scheduled"}
+{"ts": "2026-10-12T15:58:39Z", "level": "warn", "service": "metrics", "msg": "disk forecast exceeds threshold"}
