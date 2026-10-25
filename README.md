@@ -90,3 +90,19 @@ commands. By the worked example you have the
 everyday tool; the later chapters are for the day
 a filter meets data that fights back — which, with
 JSON, is a day that comes for everyone.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [yq for Mere Mortals](https://paulsullivan33-dev.github.io/yq-for-mere-mortals/)
+- [curl for Mere Mortals](https://paulsullivan33-dev.github.io/curl-for-mere-mortals/)
+- [YAML for Mere Mortals](https://paulsullivan33-dev.github.io/yaml-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/jq-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/jq-for-mere-mortals/blob/main/LICENSE-CODE).
